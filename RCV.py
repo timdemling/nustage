@@ -1,8 +1,25 @@
 import csv
 import os
 
-# INPUT YOUR CSV FILEPATH HERE
+# INPUTS
+"""
+These are the 3 inputs required to run the code
+
+csv_filepath (str): full filepath to the csv file containing votes. Please ensure that the csv
+                    file follows the requirements detailed in ReadMe. It is easiest if the filepath
+                    is absolute and not relative, i.e. starting with `C:`
+spring_3rd_choice_election (bool): whether or not the current election is for the 3rd choice for the
+                                   spring semester. If this is `True`, `spring_backup_winner` must be
+                                   provided.
+spring_backup_winner (str): the exact string of the show which won 2nd choice for the spring semester.
+                            it will be removed from the election for the 3rd choice for spring.
+
+"""
+
+
 csv_filepath = "C:\\Users\\timde\\Downloads\\Spring 2024 Mainstage Second and Third Choice.csv"
+spring_backup_winner = "Chicago"
+spring_3rd_choice_election = True
 
 def get_ballots_from_csv(csv_filepath):
 
@@ -166,7 +183,20 @@ def redistribute_last_place_votes(
         
     return new_votes
 
-def determine_winner(csv_filepath):
+def remove_spring_2nd_choice_winner(clean_votes, spring_backup_winner):
+    # this removes it from every ballot
+    print("\n")
+    print("This election is for the 3rd choice spring semester.")
+    print(f"As a result, {spring_backup_winner} has been removed from all ballots")
+    print("\n")
+
+    for ballot in clean_votes:
+        if spring_backup_winner.lower() in ballot:
+            ballot.remove(spring_backup_winner.lower())
+    return clean_votes
+
+
+def determine_winner(csv_filepath, spring_3rd_choice_election):
     """
     This is the main function that calls all secondary functions 
     and determines the winner from the list of votes
@@ -182,6 +212,10 @@ def determine_winner(csv_filepath):
     
     # get votes_list from csv_filepath
     votes_list = get_ballots_from_csv(csv_filepath)
+
+    # remove spring backup if that's this election
+    if spring_3rd_choice_election:
+        votes_list = remove_spring_2nd_choice_winner(votes_list, spring_backup_winner)
     
     # get the tally of first place votes from the votes list
     running_votes_dict = tally_first_place_votes(votes_list)
@@ -235,4 +269,4 @@ def determine_winner(csv_filepath):
             print(running_votes_dict)
             print("\n")
 
-determine_winner(csv_filepath)
+determine_winner(csv_filepath, spring_3rd_choice_election)
