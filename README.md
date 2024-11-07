@@ -2,11 +2,16 @@
 
 There really isn't a good website or existing program to easily do this process, so here we are. Written by Tim Demling '23
 
+### Running this code
+This algorithm can be run by downloading RCV.py, opening in any IDE, editing the inputs, and running the file. The user must have Python installed on their device. Ideally, find CS/DS major/minor eboard member who already has all of the infrastructure set up to run this. Otherwise, there are lots of resources available on how to install and run Python scipts. 
+- https://www.python.org/downloads/
+- https://realpython.com/run-python-scripts/
+
 ### Format of the google form (both absentee and in-person)
 - Show names must be consistent across absentee/in-person voting
 - The first question in the google form should be "choice 1", the second question should be "choice 2", etc.
 - Questions should be multiple-choice selection so that all show names are the same
-    - This is exactly the format of the google form used in the spring 2023 mainstage voting meeting
+    - This is exactly the format of the google form used in the spring 2023 mainstage voting meeting. I suggest creating a copy of this and adapting to the current semester.
 
 ### Process of voting
 - Have both absentee and in-person ballots in their own csv file (export from google sheets (results))
