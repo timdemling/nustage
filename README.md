@@ -20,7 +20,7 @@ This algorithm can be run by downloading RCV.py, opening in any IDE, editing the
     - NOTE: you may need to change the slashes in the filepath to double back-slashes. 
 
 
-#### Order of votes
+### Order of votes
 - Fall 1st choice
 - Spring 1st choice
 - Fall 2nd choice
@@ -32,3 +32,6 @@ E.g. in Spring 2023 voting, Pippin was the winner for Spring, so every other sho
 
 - If someone selects a show for two different choices, their ballot will break the algorithm and so their vote will be deleted. Warn them of this
 
+### Help
+- I'm not an expert software dev. At some point, somebody more adept at CS should rework this into a website or something for a more friendly user experience. While I'm confident the algorithm is correct and will provide accurate results every time, the learning curve to running this code is a little steep.
+- I'm happy to help/explain myself if necessary - you can contact me at (413) 404-3139 or tim.demling@gmail.com, or if I'm still in the slack when you're reading this, idk how long eboard will use my little toy.
